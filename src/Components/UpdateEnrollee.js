@@ -20,7 +20,7 @@ export default class UpdateEnrollee extends React.Component{
     }
 
     findEnrollee(enrolleeId){
-        var url = "http://localhost:8080/api/enrollee/" + enrolleeId
+        var url = "http://localhost:8080/enrollee/findById/" + enrolleeId
         axios.get(url)
             .then(response => response.data)
             .then((data) => {
@@ -36,7 +36,7 @@ export default class UpdateEnrollee extends React.Component{
         var r = /\d+/;
         var s = window.location.pathname
         var id = s.match(r)[0]
-        axios.put("http://localhost:8080/api/enrollee/" + id, {id: this.state.id, firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate, phoneNumber:this.state.phoneNumber, activationStatus:this.state.activationStatus})
+        axios.put("http://localhost:8080/enrollee/update/" + id, {id: this.state.id, firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate, phoneNumber:this.state.phoneNumber, activationStatus:this.state.activationStatus})
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.initialState)

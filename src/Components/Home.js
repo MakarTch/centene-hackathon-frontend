@@ -21,7 +21,7 @@ class Home extends React.Component{
     }
 
     findEnrollees(){
-        var url = "http://localhost:8080/api/enrollee"
+        var url = "http://localhost:8080/enrollee/findAll"
         axios.get(url)
             .then(response => response.data)
             .then((data) => {
@@ -31,7 +31,7 @@ class Home extends React.Component{
     }
     
     findDependents(){
-        var url = "http://localhost:8080/api/dependent"
+        var url = "http://localhost:8080/dependent/findAll"
         axios.get(url)
             .then(response => response.data)
             .then((data) => {

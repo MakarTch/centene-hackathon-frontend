@@ -21,7 +21,7 @@ export default class AddEnrollee extends React.Component{
 
     submitEnrollee(event){
         event.preventDefault();
-        axios.post("http://localhost:8080/api/enrollee", {firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate, phoneNumber:this.state.phoneNumber, activationStatus:this.state.activationStatus})
+        axios.post("http://localhost:8080/enrollee/post", {firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate, phoneNumber:this.state.phoneNumber, activationStatus:this.state.activationStatus})
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.initialState)

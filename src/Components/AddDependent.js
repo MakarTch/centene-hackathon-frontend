@@ -21,7 +21,7 @@ export default class AddDependent extends React.Component{
         var r = /\d+/;
         var s = window.location.pathname
         event.preventDefault();
-        axios.post("http://localhost:8080/api/dependent", {enrolleeId:s.match(r)[0], firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate})
+        axios.post("http://localhost:8080/dependent/post", {enrolleeId:s.match(r)[0], firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate})
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.initialState)

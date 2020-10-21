@@ -23,7 +23,7 @@ export default class UpdateDependent extends React.Component{
     }
 
     findDependent(dependentId){
-        var url = "http://localhost:8080/api/dependent/" + dependentId
+        var url = "http://localhost:8080/dependent/findById/" + dependentId
         axios.get(url)
             .then(response => response.data)
             .then((data) => {
@@ -40,7 +40,7 @@ export default class UpdateDependent extends React.Component{
         var r = /\d+/;
         var s = window.location.pathname
         var id = s.match(r)[0]
-        axios.put("http://localhost:8080/api/dependent/"+id , {id: this.state.id, enrolleeId:this.state.enrolleeId, firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate})
+        axios.put("http://localhost:8080/dependent/update/"+id , {id: this.state.id, enrolleeId:this.state.enrolleeId, firstName:this.state.firstName, lastName:this.state.lastName, birthDate:this.state.birthDate})
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.initialState)
